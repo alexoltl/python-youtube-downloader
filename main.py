@@ -1,7 +1,27 @@
-from pytube import YouTube
-from youtubesearchpython import VideosSearch
-from colorama import Fore
-import time
+# Auto install PIP packages if they are not already installed
+import time, os
+
+# YouTube Stuff
+try:
+    from pytube import YouTube
+    from youtubesearchpython import VideosSearch
+except ImportError:
+    # Install the packages that they don't have
+    print("You don't have the required packages\nInstalling...")
+    os.system("pip install pytube")
+    os.system("pip install youtube-search-python")
+
+# Colors
+try:
+    from colorama import Fore
+except ImportError:
+    print("You don't have the required packages\nInstalling...")
+    os.system("pip install colorama")
+
+# Clear the screen to remove all of the garbage put on the screen from installing packages
+os.system("cls")
+
+
 
 while True:
     print(Fore.BLUE + "Welcome to the python youtube downloader.\n")
